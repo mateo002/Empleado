@@ -21,6 +21,9 @@ namespace PruebaTecnicaRenting.Infrastructure.EntityFramework
             }
             modelBuilder.HasDefaultSchema(_configuration.GetConnectionString("BaseSchema"));
             modelBuilder.ApplyConfiguration(new PersonEntityConfiguration());
+            modelBuilder.ApplyConfiguration(new EmpleadoEntityConfiguration());
+            modelBuilder.ApplyConfiguration(new CiudadEntityConfiguration());
+            modelBuilder.ApplyConfiguration(new DepartamentoEntityConfigurarion());
 
             base.OnModelCreating(modelBuilder);
         }

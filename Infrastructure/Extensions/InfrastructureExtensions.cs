@@ -1,8 +1,10 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using PruebaTecnicaRenting.Domain.Entities;
 using PruebaTecnicaRenting.Domain.Repositories;
 using PruebaTecnicaRenting.Infrastructure.EntityFramework;
+using PruebaTecnicaRenting.Infrastructure.EntityFramework.Repositories;
 
 namespace PruebaTecnicaRenting.Infrastructure.Extensions
 {
@@ -13,7 +15,8 @@ namespace PruebaTecnicaRenting.Infrastructure.Extensions
             AddSqlServer(services, configuration);
 
             services.AddScoped<IUnitOfWork, UnitOfWork>();
-
+            services.AddScoped<IRepository<Empleado>, Repository<Empleado>>();
+            services.AddScoped<IRepository<Person>, Repository<Person>>();
             return services;
         }
 
